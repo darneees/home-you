@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home You</title>
+        <!-- import favicon -->
+        <link rel="shortcut icon" href="resource/img/favicon.ico" type="image/x-icon">
+        <!-- import css -->
+        <link rel="stylesheet" href="resource/css-scss/style.css">
+        <!-- import icon -->
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    </head>
+    <body>
+        <button onclick="topFunction()" id="scrollTop" title="Go to top">
+            <i class="ph-bold ph-arrow-up"></i>
+        </button>
+
+        <span id="overlay"></span>
+
+        <article id="modal">
+            <i class="ph-bold ph-x" id="close"></i>
+            <p>Na HOMEYOU, acreditamos que uma casa é mais do que apenas paredes
+                e tetos; é um refúgio de amor, conforto e memórias
+                inesquecíveis. Somos uma empresa fictícia apaixonada por
+                transformar sonhos em realidade, oferecendo soluções abrangentes
+                para todas as suas necessidades imobiliárias.</p>
+            <h3><i class="ph-bold ph-house"></i> Nossa história</h3>
+            <p>Desde a nossa fundação, temos desempenhado um papel fundamental
+                no cenário imobiliário, conectando pessoas a lares que elas
+                amam. Ao longo dos anos, construímos uma trajetória de sucesso
+                baseada em integridade, inovação e dedicação ao cliente. Cada
+                passo dado na nossa jornada foi marcado pelo compromisso em
+                criar experiências excepcionais para aqueles que confiam em nós
+                para realizar seus sonhos imobiliários.</p>
+            <h3><i class="ph-bold ph-clipboard-text"></i> O que fazemos:</h2>
+            <ul class="modal-menu">
+                <li>
+                    <i class="ph-bold ph-checks"></i>
+                    Compra e Venda de Imóveis
+                </li>
+
+                <li>
+                    <i class="ph-bold ph-checks"></i>
+                    Aluguel de Imóveis
+                </li>
+
+                <li>
+                    <i class="ph-bold ph-checks"></i>
+                    Decoração Interna
+                </li>
+
+                <li>
+                    <i class="ph-bold ph-checks"></i>
+                    Produtos de Pintura
+                </li>
+            </ul>
+
+            <article id="modal-image">
+                <img src="resource/img/modal.webp" alt>
+            </article>
+        </article>
+
+        <header>
+            <nav>
+                <h1 class="nav-logo">
+                    <i class="ph-bold ph-house"></i>
+                    HomeYou
+                </h1>
+
+                <ul class="nav-menu">
+                    <li><a href="#main-design">Design</a></li>
+                    <li><a href="#main-gallery">Galeria</a></li>
+                    <li><a href="#main-contact">Contanto</a></li>
+                    <li><i class="ph-bold ph-user"></i></li>
+                    <li><i class="ph-bold ph-heart"></i></li>
+                    <li><i class="ph-bold ph-magnifying-glass"></i></li>
+                </ul>
+
+                <button id="menuMobile">
+                    <i class="ph-bold ph-squares-four"></i>
+                </button>
+
+                <ul class="menu_mobile">
+                    <li>
+                        <i class="ph-bold ph-pencil-line"></i>
+                        <a href="#main-design">Design</a>
+                    </li>
+                    <li>
+                        <i class="ph-bold ph-images-square"></i>
+                        <a href="#main-gallery">Galeira</a>
+                    </li>
+                    <li>
+                        <i class="ph-bold ph-phone"></i>
+                        <a href="#main-contact">Contato</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="main-home">
+                <article class="home-content">
+                    <h1>Ajudar você a encontrar o melhor conforto, é nossa
+                        prioridade.</h1>
+                    <p>Encontre uma variedade de propriedades que combinam com
+                        você. Esqueça todas as dificuldades em encontrar uma
+                        residência</p>
+
+                    <article>
+                        <a href="#main-contact">
+                            Entre em contato
+                        </a>
+                        <a href="#" id="open">
+                            Mais sobre nós
+                        </a>
+                    </article>
+                </article>
+
+                <article class="home-image">
+                    <img src="resource/img/home.webp"
+                        alt="imagem ilustrativa de uma casa">
+                </article>
+            </section>
+
+            <section id="main-design">
+                <article class="design-image">
+                    <article class="square"></article>
+                    <img src="resource/img/design.webp" alt>
+                </article>
+
+                <article class="design-cotent">
+                    <article class="header">
+                        <h2><i class="ph-bold ph-paint-brush"></i> Design
+                            Minimalista </h2>
+                        <p>Móveis apenas essenciais e com design moderno, além
+                            de revestimentos bonitos e em cores neutras para
+                            manter a casa sempre com um estilo clean e
+                            suave.</p>
+                    </article>
+
+                    <article class="footer">
+                        <a href="#main-design">Quero saber mais sobre os
+                            designs</a>
+                    </article>
+                </article>
+            </section>
+
+            <section id="main-gallery">
+                <article class="gallery-content">
+                    <h2>Galeria</h2>
+                    <p>Se você está entediado com a aparência da decoração de
+                        interiores da casa comuns, trabalhamos com designs
+                        diferentes e inovadores.</p>
+                </article>
+
+                <article class="gallery-image">
+                    <img src="resource/img/galery/gallery-01.webp" alt>
+                    <img src="resource/img/galery/gallery-02.webp" alt>
+                    <img src="resource/img/galery/gallery-03.webp" alt>
+                </article>
+            </section>
+
+            <section id="main-contact">
+                <article class="contact-content">
+                    <h2>Orçamento</h2>
+                    <p>Interessado em entrar em contato com um de nossos
+                        profissionais?</p>
+                </article>
+
+                <article class="contact-button">
+                    <a href="#main-contact">Solicitar orçamento</a>
+                </article>
+            </section>
+        </main>
+
+        <footer id="footer">
+            <span class="logo-footer">
+                <i class="ph-bold ph-house"></i>
+            </span>
+
+            <article class="footer-content">
+                <h3>Produtos</h3>
+                <p>Mobilia</p>
+                <p>Segurança</p>
+                <p>Design Interior</p>
+            </article>
+
+            <article class="footer-content">
+                <h3>Mais Informações</h3>
+                <p>Contato</p>
+                <p>Sobre nós</p>
+                <p>Termos e Condições</p>
+            </article>
+
+            <article class="footer-content">
+                <h3>Redes Sociais</h3>
+                <p>Pinterest</p>
+                <p>Facebook</p>
+                <p>lorem lorem</p>
+            </article>
+        </footer>
+
+        <script src="resource/js/script.js"></script>
+    </body>
+</html>

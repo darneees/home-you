@@ -1,0 +1,1519 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@200;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Sora", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 10vh;
+}
+
+body {
+  background-color: #FFFFFF;
+  z-index: 1;
+  position: relative;
+}
+body #overlay {
+  display: none;
+  background-color: rgba(44, 44, 44, 0.5647058824);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+body #modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 0.7rem;
+  background-color: #FFFFFF;
+  position: fixed;
+  top: 10%;
+  left: 30%;
+  width: 45%;
+  height: 75%;
+  padding: 3.5rem 2.5rem 2rem 2.5rem;
+  border-radius: 1rem;
+  z-index: 5;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 5px 20px;
+  display: none;
+}
+body #modal #close {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  background-color: #202024;
+  color: #FFFFFF;
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 5px 20px;
+  cursor: pointer;
+}
+body #modal h3 {
+  font-size: 1.8rem;
+  color: #2c2c2c;
+  margin: 1rem 0;
+}
+body #modal h3 i {
+  color: #797979;
+}
+body #modal p {
+  font-size: 1.1rem;
+  color: #202024;
+  opacity: 0.75;
+  text-indent: 1rem;
+}
+body #modal .modal-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 2rem;
+  list-style: none;
+}
+body #modal .modal-menu li {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.15rem;
+  color: #202024;
+}
+body #modal .modal-menu li .ph-checks {
+  font-size: 1rem;
+  color: #797979;
+}
+body #modal .modal-menu li .ph-eye {
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+body #modal #modal-image {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  position: absolute;
+  right: 2.5rem;
+  bottom: 3.2rem;
+  height: 16rem;
+  width: 25rem;
+  border-radius: 0.5rem;
+}
+body #modal #modal-image img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 1rem;
+}
+body #scrollTop {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  background-color: #202024;
+  color: #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 5px 20px;
+  height: 3.6rem;
+  width: 3.6rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 3;
+  display: none;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 0;
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 10vh;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  position: fixed;
+  z-index: 2;
+}
+nav .nav-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  color: #2c2c2c;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+nav .nav-logo i {
+  background-color: #2c2c2c;
+  color: #F9F9F9;
+  font-size: 1.5rem;
+  padding: 0.4rem;
+}
+nav .nav-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+}
+nav .nav-menu li a {
+  text-decoration: none;
+  color: #797979;
+  font-size: 1.1rem;
+  opacity: 0.7;
+}
+nav .nav-menu li a:hover {
+  transition: all 0.2s ease-in;
+  color: #17171A;
+  opacity: 1;
+}
+nav .nav-menu li i {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  color: #17171A;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+nav .nav-menu li i:hover {
+  transition: all 0.3s ease-in-out;
+  background-color: #2c2c2c;
+  color: #FFFFFF;
+}
+nav .nav-menu li::first-letter {
+  font-size: 1.3rem;
+}
+nav button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+nav button .ph-squares-four {
+  font-size: 2rem;
+  color: #797979;
+  display: none;
+  cursor: pointer;
+}
+nav .menu_mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  position: absolute;
+  right: 2rem;
+  top: 6rem;
+  background-color: #202024;
+  list-style: none;
+  height: 13rem;
+  width: 14.5rem;
+  padding: 0 2rem;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 5px 20px;
+  border-radius: 0.5rem;
+  display: none;
+}
+nav .menu_mobile li {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+nav .menu_mobile li a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 1.3rem;
+}
+nav .menu_mobile li i {
+  color: #797979;
+  font-size: 1.3rem;
+  padding: 0 2rem 0 0;
+  border-right: 0.1rem solid #797979;
+}
+nav .menu_mobile.active {
+  display: flex;
+}
+
+main #main-home {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #F9F9F9;
+  overflow: hidden;
+  z-index: 3;
+}
+main #main-home .home-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 1.5rem;
+  width: 35%;
+  height: 100%;
+  padding: 0 1rem;
+}
+main #main-home .home-content h1 {
+  font-size: 2.5rem;
+  color: #202024;
+  font-weight: 700;
+}
+main #main-home .home-content p {
+  font-size: 1.1rem;
+  color: #17171A;
+  font-weight: 300;
+}
+main #main-home .home-content article {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 0;
+  margin: 1rem 0 0 0;
+  width: 100%;
+}
+main #main-home .home-content article a:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  background-color: #202024;
+  border: 0.2rem solid #202024;
+  color: #FFFFFF;
+  width: auto;
+  height: 3.8rem;
+  text-decoration: none;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 5px 20px;
+}
+main #main-home .home-content article a:nth-child(1):hover {
+  transition: all 0.3s ease-in-out;
+  background-color: #F9F9F9;
+  border: 0.2rem solid #202024;
+  color: #202024;
+}
+main #main-home .home-content article a:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  border-radius: 0.5rem;
+  color: #202024;
+  width: auto;
+  height: 3.8rem;
+  text-decoration: none;
+  font-size: 1.1rem;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 5px 20px;
+}
+main #main-home .home-content article a:nth-child(2):hover {
+  transition: all 0.3s ease-in-out;
+  background-color: #202024;
+  color: #FFFFFF;
+}
+main #main-home .home-image {
+  height: 100%;
+  width: auto;
+}
+main #main-design {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8rem;
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 100vh;
+  z-index: 3;
+}
+main #main-design .design-image {
+  height: 25rem;
+  width: 25rem;
+  position: relative;
+}
+main #main-design .design-image .square {
+  background-color: #202024;
+  height: 100%;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+main #main-design .design-image img {
+  position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 25rem;
+  width: 25rem;
+  bottom: -2.5rem;
+  right: -3rem;
+  border-radius: 0.5rem;
+}
+main #main-design .design-cotent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 2rem;
+  width: 34%;
+}
+main #main-design .design-cotent .header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 1rem;
+  background-color: #202024;
+  height: 15rem;
+  padding: 0 2rem;
+  border-radius: 0.5rem;
+}
+main #main-design .design-cotent .header h2 {
+  color: #FFFFFF;
+  font-size: 2rem;
+  font-weight: 500;
+}
+main #main-design .design-cotent .header h2 i {
+  color: #797979;
+}
+main #main-design .design-cotent .header p {
+  color: #FFFFFF;
+  font-size: 1.1rem;
+  opacity: 0.6;
+  font-weight: 300;
+  text-indent: 1rem;
+}
+main #main-design .design-cotent .footer a {
+  text-decoration: underline;
+  color: #202024;
+  font-size: 1.1rem;
+}
+main #main-gallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: #F9F9F9;
+  width: 100%;
+  height: 100vh;
+  z-index: 3;
+}
+main #main-gallery .gallery-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  height: 25%;
+}
+main #main-gallery .gallery-content h2 {
+  color: #202024;
+  font-size: 2rem;
+}
+main #main-gallery .gallery-content p {
+  color: #202024;
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+main #main-gallery .gallery-image {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: start;
+  gap: 1.9rem;
+  height: 75%;
+}
+main #main-gallery .gallery-image img {
+  height: 80%;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 5px 20px;
+}
+main #main-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 50vh;
+  z-index: 3;
+}
+main #main-contact .contact-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+main #main-contact .contact-content h2 {
+  color: #202024;
+  font-size: 2rem;
+}
+main #main-contact .contact-content p {
+  color: #202024;
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+main #main-contact .contact-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+}
+main #main-contact .contact-button a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  border: 0.15rem solid #2c2c2c;
+  font-size: 1rem;
+  width: auto;
+  height: 3.5rem;
+  text-decoration: none;
+  color: #202024;
+  border-radius: 0.5rem;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: start;
+  gap: 5rem;
+  background-color: #F9F9F9;
+  width: 100%;
+  height: 50vh;
+  padding: 12rem 3rem 3rem 3rem;
+  z-index: 3;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+footer .logo-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+}
+footer .logo-footer i {
+  background-color: #2c2c2c;
+  color: #F9F9F9;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+footer .footer-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 1rem;
+}
+footer .footer-content h3 {
+  color: #202024;
+  font-size: 1.3rem;
+}
+footer .footer-content p {
+  color: #202024;
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
+::-moz-selection {
+  background-color: #2c2c2c;
+  color: #FFFFFF;
+  opacity: 0.7;
+}
+
+::selection {
+  background-color: #2c2c2c;
+  color: #FFFFFF;
+  opacity: 0.7;
+}
+
+::-webkit-scrollbar {
+  background-color: #F9F9F9;
+  width: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #202024;
+}
+
+@media (min-width: 1200px) and (max-width: 1999px) {
+  body #modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 1.6rem;
+    display: none;
+    top: 12%;
+    left: 15%;
+    width: 70%;
+    height: 73%;
+    padding: 3rem 2.5rem 2rem 2.5rem;
+  }
+  body #modal p:nth-child(2) {
+    display: block;
+  }
+  body #modal h3 {
+    font-size: 1.5rem;
+    margin: 0.6rem 0;
+  }
+  body #modal p {
+    font-size: 1rem;
+  }
+  body #modal #modal-image {
+    display: block;
+  }
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 0;
+    padding: 0;
+  }
+  nav .nav-logo {
+    font-size: 1.4rem;
+  }
+  nav .nav-logo i {
+    font-size: 1.6rem;
+    padding: 0.45rem;
+  }
+  nav .nav-menu {
+    display: flex;
+  }
+  nav button {
+    display: none;
+  }
+  nav .menu_mobile {
+    display: none;
+  }
+  main #main-home {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 0;
+  }
+  main #main-home .home-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    width: 35%;
+    height: 100%;
+    padding: 0 2rem;
+  }
+  main #main-home .home-content h1 {
+    font-size: 2.2rem;
+  }
+  main #main-home .home-content p {
+    font-size: 1.2rem;
+  }
+  main #main-home .home-content article {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 2rem;
+  }
+  main #main-home .home-content article a:nth-child(1) {
+    width: 100%;
+  }
+  main #main-home .home-content article a:nth-child(2) {
+    width: 100%;
+  }
+  main #main-home .home-image {
+    display: flex;
+  }
+  main #main-design {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 7rem;
+    height: 100vh;
+    width: 100%;
+    padding: 0;
+  }
+  main #main-design .design-image {
+    display: flex;
+    height: 25rem;
+    width: 25rem;
+  }
+  main #main-design .design-cotent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 2rem;
+    width: 40%;
+  }
+  main #main-design .design-cotent .header h2 {
+    font-size: 2rem;
+  }
+  main #main-design .design-cotent .header p {
+    font-size: 1.1rem;
+    opacity: 0.6;
+  }
+  main #main-design .design-cotent .footer a {
+    font-size: 1.25rem;
+  }
+  main #main-gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 100vh;
+    width: 100%;
+    padding: 0;
+  }
+  main #main-gallery .gallery-content {
+    height: 25%;
+  }
+  main #main-gallery .gallery-content p {
+    text-align: center;
+    padding: 0 4rem;
+  }
+  main #main-gallery .gallery-image {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    gap: 1.5rem;
+    height: 75%;
+  }
+  main #main-gallery .gallery-image img {
+    height: 32rem;
+    border-radius: 0.5rem;
+  }
+  main #main-contact {
+    height: 50vh;
+  }
+  main #main-contact .contact-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.3rem;
+  }
+  main #main-contact .contact-content h2 {
+    font-size: 2rem;
+  }
+  main #main-contact .contact-content p {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  main #main-contact .contact-button a {
+    font-size: 1.1rem;
+    width: 40%;
+  }
+  main #main-contact .contact-button a:hover {
+    transition: all 0.3s ease-in-out;
+    background-color: #202024;
+    color: #FFFFFF;
+  }
+  footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    gap: 4.5rem;
+    height: 50vh;
+    padding: 10rem 0 0 0;
+    flex-wrap: wrap;
+  }
+  footer .logo-footer i {
+    font-size: 1.3rem;
+    padding: 1rem;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1199px) {
+  body #modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 1.6rem;
+    display: none;
+    top: 12%;
+    left: 7%;
+    width: 85%;
+    height: 75%;
+    padding: 5rem 2.5rem 2rem 2.5rem;
+  }
+  body #modal p:nth-child(2) {
+    display: block;
+  }
+  body #modal h3 {
+    font-size: 1.5rem;
+    margin: 0.6rem 0;
+  }
+  body #modal p {
+    font-size: 1rem;
+  }
+  body #modal #modal-image {
+    display: block;
+  }
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+    padding: 0 2rem;
+  }
+  nav .nav-logo {
+    font-size: 1.3rem;
+  }
+  nav .nav-logo i {
+    font-size: 1.2rem;
+    padding: 0.45rem;
+  }
+  nav .nav-menu {
+    display: flex;
+  }
+  nav button {
+    display: none;
+  }
+  nav .menu_mobile {
+    display: none;
+  }
+  main #main-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+  }
+  main #main-home .home-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    width: 100%;
+    padding: 0 2rem;
+    text-align: center;
+  }
+  main #main-home .home-content h1 {
+    font-size: 2.2rem;
+  }
+  main #main-home .home-content p {
+    font-size: 1.2rem;
+  }
+  main #main-home .home-content article {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 2rem;
+  }
+  main #main-home .home-content article a:nth-child(1) {
+    width: 50%;
+  }
+  main #main-home .home-content article a:nth-child(2) {
+    width: 50%;
+  }
+  main #main-home .home-image {
+    display: none;
+  }
+  main #main-design {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    height: 50vh;
+    padding: 0 2rem;
+  }
+  main #main-design .design-image {
+    display: none;
+  }
+  main #main-design .design-cotent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 65%;
+  }
+  main #main-design .design-cotent .header h2 {
+    font-size: 2rem;
+  }
+  main #main-design .design-cotent .header p {
+    font-size: 1.2rem;
+    opacity: 0.6;
+  }
+  main #main-design .design-cotent .footer a {
+    font-size: 1.25rem;
+  }
+  main #main-gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 100%;
+    padding: 3rem 2rem;
+  }
+  main #main-gallery .gallery-content {
+    width: 100%;
+  }
+  main #main-gallery .gallery-content p {
+    text-align: center;
+    padding: 0 2rem;
+  }
+  main #main-gallery .gallery-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.4rem;
+    width: 100%;
+    padding: 2rem 0 0 0;
+  }
+  main #main-gallery .gallery-image img {
+    height: 32rem;
+    border-radius: 0.5rem;
+  }
+  main #main-contact {
+    padding: 0 2rem;
+  }
+  main #main-contact .contact-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.3rem;
+  }
+  main #main-contact .contact-content h2 {
+    font-size: 2rem;
+  }
+  main #main-contact .contact-content p {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  main #main-contact .contact-button a {
+    font-size: 1.1rem;
+    width: 50%;
+  }
+  main #main-contact .contact-button a:hover {
+    transition: all 0.3s ease-in-out;
+    background-color: #202024;
+    color: #FFFFFF;
+  }
+  footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    gap: 4.5rem;
+    height: 50vh;
+    padding: 10rem 0 0 0;
+    flex-wrap: wrap;
+  }
+  footer .logo-footer i {
+    font-size: 1.3rem;
+    padding: 1rem;
+  }
+}
+@media (min-width: 700px) and (max-width: 999px) {
+  body #modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 2rem;
+    display: none;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 78%;
+    padding: 5rem 2.5rem 2rem 2.5rem;
+  }
+  body #modal p:nth-child(2) {
+    display: block;
+  }
+  body #modal h3 {
+    font-size: 1.5rem;
+    margin: 0.6rem 0;
+  }
+  body #modal p {
+    font-size: 1rem;
+  }
+  body #modal #modal-image {
+    display: none;
+  }
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+    padding: 0 2rem;
+  }
+  nav .nav-logo {
+    font-size: 1.3rem;
+  }
+  nav .nav-logo i {
+    font-size: 1.2rem;
+    padding: 0.45rem;
+  }
+  nav .nav-menu {
+    display: none;
+  }
+  nav button .ph-squares-four {
+    font-size: 2.1rem;
+    display: block;
+  }
+  nav .menu_mobile li a {
+    font-size: 1.1rem;
+  }
+  nav .menu_mobile li i {
+    font-size: 1.3rem;
+  }
+  main #main-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+  }
+  main #main-home .home-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    width: 100%;
+    padding: 0 2rem;
+    text-align: center;
+  }
+  main #main-home .home-content h1 {
+    font-size: 2.3rem;
+  }
+  main #main-home .home-content p {
+    font-size: 1.2rem;
+  }
+  main #main-home .home-content article {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 2rem;
+  }
+  main #main-home .home-content article a:nth-child(1) {
+    width: 85%;
+  }
+  main #main-home .home-content article a:nth-child(2) {
+    width: 85%;
+  }
+  main #main-home .home-image {
+    display: none;
+  }
+  main #main-design {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    height: 50vh;
+    padding: 0 2rem;
+  }
+  main #main-design .design-image {
+    display: none;
+  }
+  main #main-design .design-cotent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 85%;
+  }
+  main #main-design .design-cotent .header h2 {
+    font-size: 2rem;
+  }
+  main #main-design .design-cotent .header p {
+    font-size: 1rem;
+    opacity: 0.7;
+  }
+  main #main-design .design-cotent .footer a {
+    font-size: 1.2rem;
+  }
+  main #main-gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 100%;
+    padding: 3rem 2rem;
+  }
+  main #main-gallery .gallery-content {
+    width: 100%;
+  }
+  main #main-gallery .gallery-content p {
+    text-align: center;
+    padding: 0 2rem;
+  }
+  main #main-gallery .gallery-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.4rem;
+    width: 100%;
+    padding: 2rem 0 0 0;
+  }
+  main #main-gallery .gallery-image img {
+    height: 32rem;
+    border-radius: 0.5rem;
+  }
+  main #main-contact {
+    padding: 0 2rem;
+  }
+  main #main-contact .contact-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.3rem;
+  }
+  main #main-contact .contact-content h2 {
+    font-size: 2rem;
+  }
+  main #main-contact .contact-content p {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  main #main-contact .contact-button a {
+    font-size: 1.1rem;
+    width: 85%;
+  }
+  main #main-contact .contact-button a:hover {
+    transition: all 0.3s ease-in-out;
+    background-color: #202024;
+    color: #FFFFFF;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 4rem;
+    height: 100vh;
+    padding: 0 5rem;
+  }
+  footer .logo-footer i {
+    font-size: 1.3rem;
+    padding: 1rem;
+  }
+}
+@media (min-width: 430px) and (max-width: 699px) {
+  body #modal {
+    top: 4.5%;
+    left: 5%;
+    width: 90%;
+    height: 70%;
+    padding: 5.5rem 2rem 2rem 2rem;
+  }
+  body #modal p:nth-child(2) {
+    display: none;
+  }
+  body #modal h3 {
+    font-size: 1.5rem;
+    margin: 0.6rem 0;
+  }
+  body #modal p {
+    font-size: 1rem;
+  }
+  body #modal #modal-image {
+    display: none;
+  }
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+    padding: 0 2rem;
+  }
+  nav .nav-logo {
+    font-size: 1.3rem;
+  }
+  nav .nav-logo i {
+    font-size: 1.2rem;
+    padding: 0.45rem;
+  }
+  nav .nav-menu {
+    display: none;
+  }
+  nav button .ph-squares-four {
+    font-size: 2.1rem;
+    display: block;
+  }
+  main #main-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+  }
+  main #main-home .home-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 3rem;
+    width: 100%;
+    padding: 0 2rem;
+  }
+  main #main-home .home-content h1 {
+    font-size: 2.3rem;
+  }
+  main #main-home .home-content p {
+    font-size: 1.2rem;
+  }
+  main #main-home .home-content article {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 2rem;
+  }
+  main #main-home .home-content article a:nth-child(1) {
+    width: 100%;
+  }
+  main #main-home .home-content article a:nth-child(2) {
+    width: 100%;
+  }
+  main #main-home .home-image {
+    display: none;
+  }
+  main #main-design {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    height: 50vh;
+  }
+  main #main-design .design-image {
+    display: none;
+  }
+  main #main-design .design-cotent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    padding: 0 2rem;
+  }
+  main #main-design .design-cotent .header h2 {
+    font-size: 1.5rem;
+  }
+  main #main-design .design-cotent .header p {
+    font-size: 1rem;
+    opacity: 0.7;
+  }
+  main #main-design .design-cotent .footer a {
+    font-size: 1.2rem;
+  }
+  main #main-gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 100%;
+    padding: 3rem 2rem;
+  }
+  main #main-gallery .gallery-content {
+    width: 100%;
+  }
+  main #main-gallery .gallery-content p {
+    text-align: center;
+  }
+  main #main-gallery .gallery-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.4rem;
+    width: 100%;
+    padding: 2rem 0 0 0;
+  }
+  main #main-gallery .gallery-image img {
+    height: 27rem;
+    border-radius: 0.5rem;
+  }
+  main #main-contact {
+    padding: 0 2rem;
+  }
+  main #main-contact .contact-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.3rem;
+  }
+  main #main-contact .contact-content h2 {
+    font-size: 2rem;
+  }
+  main #main-contact .contact-content p {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  main #main-contact .contact-button a {
+    font-size: 1.1rem;
+    width: 100%;
+  }
+  main #main-contact .contact-button a:hover {
+    transition: all 0.3s ease-in-out;
+    background-color: #202024;
+    color: #FFFFFF;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 4rem;
+    height: 100vh;
+    padding: 3rem;
+  }
+  footer .logo-footer i {
+    font-size: 1.3rem;
+    padding: 1rem;
+  }
+}
+@media (max-width: 429px) {
+  body #modal {
+    top: 4.5%;
+    left: 5%;
+    width: 90%;
+    height: 80%;
+    padding: 4rem 2rem 2rem 2rem;
+  }
+  body #modal p:nth-child(2) {
+    display: none;
+  }
+  body #modal h3 {
+    font-size: 1.5rem;
+    margin: 0.6rem 0;
+  }
+  body #modal p {
+    font-size: 1rem;
+  }
+  body #modal #modal-image {
+    display: none;
+  }
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+    padding: 0 2rem;
+  }
+  nav .nav-logo {
+    font-size: 1.3rem;
+  }
+  nav .nav-logo i {
+    font-size: 1.2rem;
+    padding: 0.45rem;
+  }
+  nav .nav-menu {
+    display: none;
+  }
+  nav button .ph-squares-four {
+    font-size: 2.1rem;
+    display: block;
+  }
+  main #main-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+  }
+  main #main-home .home-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 3rem;
+    width: 100%;
+    padding: 0 2rem;
+  }
+  main #main-home .home-content h1 {
+    font-size: 2.3rem;
+  }
+  main #main-home .home-content p {
+    font-size: 1.2rem;
+  }
+  main #main-home .home-content article {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 2rem;
+  }
+  main #main-home .home-content article a:nth-child(1) {
+    width: 100%;
+  }
+  main #main-home .home-content article a:nth-child(2) {
+    width: 100%;
+  }
+  main #main-home .home-image {
+    display: none;
+  }
+  main #main-design {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    height: 50vh;
+  }
+  main #main-design .design-image {
+    display: none;
+  }
+  main #main-design .design-cotent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    padding: 0 2rem;
+  }
+  main #main-design .design-cotent .header h2 {
+    font-size: 1.5rem;
+  }
+  main #main-design .design-cotent .header p {
+    font-size: 1rem;
+    opacity: 0.7;
+  }
+  main #main-design .design-cotent .footer a {
+    font-size: 1.2rem;
+  }
+  main #main-gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 100%;
+    padding: 3rem 2rem;
+  }
+  main #main-gallery .gallery-content {
+    width: 100%;
+  }
+  main #main-gallery .gallery-content p {
+    text-align: center;
+  }
+  main #main-gallery .gallery-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.4rem;
+    width: 100%;
+    padding: 2rem 0 0 0;
+  }
+  main #main-gallery .gallery-image img {
+    height: 27rem;
+    border-radius: 0.5rem;
+  }
+  main #main-contact {
+    padding: 0 2rem;
+  }
+  main #main-contact .contact-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.3rem;
+  }
+  main #main-contact .contact-content h2 {
+    font-size: 2rem;
+  }
+  main #main-contact .contact-content p {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  main #main-contact .contact-button a {
+    font-size: 1.1rem;
+    width: 100%;
+  }
+  main #main-contact .contact-button a:hover {
+    transition: all 0.3s ease-in-out;
+    background-color: #202024;
+    color: #FFFFFF;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 4rem;
+    height: 100vh;
+    padding: 3rem;
+  }
+  footer .logo-footer i {
+    font-size: 1.3rem;
+    padding: 1rem;
+  }
+}/*# sourceMappingURL=style.css.map */
